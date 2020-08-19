@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bioml>
+   <note type="input" label="list path, taxonomy information">./taxonomy.xml</note>
+   <note type="input" label="protein, taxon">mydatabase</note>
+   <note type="input" label="spectrum, path">PATH_TO_SPECTRUM</note>
+   <note type="input" label="output, path">PATH_TO_OUTPUT</note>
+ 
+
+<note type="input" label="list path, default parameters">./tandem.xml</note>
+<note type="input" label="residue, modification mass">57.021464@C</note>
+<note type="input" label="residue, potential modification mass">15.9949@M</note>
+<note type="input" label="residue, potential modification motif"></note>
+<note type="input" label="protein, N-terminal residue modification mass"></note>
+<note type="input" label="protein, C-terminal residue modification mass"></note>
+<note type="input" label="protein, cleavage semi">yes</note>
+<note type="input" label="scoring, maximum missed cleavage sites">2</note>
+<note type="input" label="protein, quick acetyl">yes</note>
+<note type="input" label="refine">no</note>
+<note type="input" label="refine, maximum valid expectation value">0.1</note>
+<note type="input" label="refine, modification mass">57.012@C</note>
+<note type="input" label="refine, potential modification mass">15.9949@M</note>
+<note type="input" label="refine, potential modification motif"></note>
+<note type="input" label="refine, cleavage semi">yes</note>
+<note type="input" label="refine, unanticipated cleavage">no</note>
+<note type="input" label="refine, potential N-terminus modifications"></note>
+<note type="input" label="refine, potential C-terminus modifications"></note>
+<note type="input" label="refine, point mutations">no</note>
+<note type="input" label="refine, use potential modifications for full refinement">no</note>
+</bioml>

@@ -1,0 +1,155 @@
+#Number of threads
+# set to the number of cores available 
+Thread = 24
+
+
+#Precursor-fragments grouping parameters
+RPmax = 25
+RFmax = 300
+CorrThreshold = 0.2
+DeltaApex = 0.6
+RTOverlap = 0.3
+
+#Fragment intensity adjustment
+# change BoostComplementaryIon if later using database search results to build libraries for Skyline/OpenSWATH
+AdjustFragIntensity =true
+BoostComplementaryIon=false
+
+#Export detected MS1 features (output feature file can be loaded and mapped to RAW data in BatMass)
+ExportPrecursorPeak = true
+
+#Signal extraction: mass accuracy and resolution 
+# resolution parameter matters only for data generated in profile mode
+SE.MS1PPM = 30
+SE.MS2PPM = 40
+SE.Resolution = 17000
+
+#Signal extraction: signal to noise filter
+SE.SN = 1.5
+SE.MS2SN = 1.5
+
+#Signal extraction: minimum signal intensity filter
+# for ABSciex data, we recommend automated background subtraction. Set SE.EstimateBG to true. SE.MinMSIntensity and SE.MinMSMSIntensity parameters will be ignored 
+SE.EstimateBG = true
+SE.MinMSIntensity = 1
+SE.MinMSMSIntensity = 1
+
+#Signal extraction: peak curve detection and isotope grouping
+# if data is not noisy (based on BatMass visualization), can use SE.NoMissedScan = 2
+SE.NoMissedScan = 1
+SE.MaxCurveRTRange = 2
+SE.RemoveGroupedPeaks = true
+SE.RemoveGroupedPeaksRTOverlap = 0.3
+SE.RemoveGroupedPeaksCorr = 0.3
+SE.MinNoPeakCluster = 2
+SE.MaxNoPeakCluster = 4
+
+#Signal extraction: filtering of MS1 features 
+# if interested in modified peptides, increase MassDefectOffset parameter, or set SE.MassDefectFilter to false
+SE.IsoPattern = 0.5
+SE.MassDefectFilter = true
+SE.MassDefectOffset = 0.1
+
+#Signal extraction: other 
+SE.StartCharge = 2
+SE.EndCharge = 5
+SE.MS2StartCharge = 2
+SE.MS2EndCharge = 5
+SE.MinFrag=10
+SE.StartRT = 0
+SE.EndRT = 9999
+SE.MinMZ = 200
+SE.MinPrecursorMass = 600
+SE.MaxPrecursorMass = 5000
+
+
+#Isolation window setting
+#The current version supports the following window type: SWATH (fixed window size), V_SWATH (variable SWATH window), MSX, MSE, pSMART
+WindowType=V_SWATH
+
+#Fix window size (For SWATH)
+#WindowSize=10
+
+#Variable SWATH window setting (start m/z, end m/z, separated by Tab)
+==window setting begin
+400	410
+410	420
+420	430
+430	440
+440	450
+450	460
+460	470
+470	480
+480	490
+490	500
+500	510
+510	520
+520	530
+530	540
+540	550
+550	560
+560	570
+570	580
+580	590
+590	600
+600	610
+610	620
+620	630
+630	640
+640	650
+650	660
+660	670
+670	680
+680	690
+690	700
+700	710
+710	720
+720	730
+730	740
+740	750
+750	760
+760	770
+770	780
+780	790
+790	800
+800	810
+810	820
+820	830
+830	840
+840	850
+850	860
+860	870
+870	880
+880	890
+890	900
+900	910
+910	920
+920	930
+930	940
+940	950
+950	960
+960	970
+970	980
+980	990
+990	1000
+1000	1010
+1010	1020
+1020	1030
+1030	1040
+1040	1050
+1050	1060
+1060	1070
+1070	1080
+1080	1090
+1090	1100
+1100	1110
+1110	1120
+1120	1130
+1130	1140
+1140	1150
+1150	1160
+1160	1170
+1170	1180
+1180	1190
+1190	1200
+==window setting end
