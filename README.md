@@ -1,7 +1,7 @@
 # Diamond: An Nextflow-based Multi-modal DIA Mass Spectrometry Data Processing Pipeline Encapsulated By Docker
 
 ## Flowchart of Diamond
-![image](https://github.com//Diamond/blob/master/images/fig01.png)
+![image](https://github.com/xmuyulab/Diamond/blob/master/images/fig01.png)
 Automatically identificating targeted peptides from MS data acquired in DIA mode depends on a spectral library. Usually, we only have raw MS data and lack a spectral library. In this suitation, we can choose Diamond's blue route, as shown in the picture above, first construct a spectral library, and then identify the target peptides. Of course, if you have a set of mass spectrometry data with a ready-made spectral library on hand, you can take the green route of Diamond, skip the library building step, and directly analyze the mass spectrometry data.
 
 ## Diamond Application
