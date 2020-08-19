@@ -36,4 +36,4 @@ We also provide a set of raw MS data in the data folder with a spectral library 
 nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/\*.mzXML" --irt "/path/to/irt_file" --lib "/path/to/lib_file" --windows "/path/to/windows_file" --outdir "/path/to/results_folder"
 ```
 
-Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The meaning of --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command *nextflow run pipeline.nf --help*.
+Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command *nextflow run pipeline.nf --help*.
