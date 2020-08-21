@@ -33,7 +33,7 @@ Maybe you need to specify the absolute path for the pipeline.nf file, just like 
 We also provide a set of raw MS data in the data folder with a spectral library and an irt file, which can be analyzed by executing the following command in your terminal. Assuming you are in the Diamond folder, containing MS data, the common folder and pipeline.nf. Now you can directly start the targeted analysis of MS data with an input spectral library:  
 
 ```shell
-nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/\*.mzXML" --lib "/path/to/lib_file" --irt "/path/to/irt_file" --windows "/path/to/windows_file" --outdir "/path/to/results_folder"
+nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/*.mzXML" --lib "/path/to/lib_file" --irt "/path/to/irt_file" --windows "/path/to/windows_file" --outdir "/path/to/results_folder"
 ```
 
 Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command *nextflow run pipeline.nf --help*.
