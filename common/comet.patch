@@ -1,0 +1,8 @@
+15c15
+< peptide_mass_tolerance = 50 
+---
+> peptide_mass_tolerance = 50  #change ms1 tolerance here
+52c52
+< fragment_bin_tol = 0.1              # binning to use on fragment ions
+---
+> fragment_bin_tol = 0.1       #change ms2 tolerance here

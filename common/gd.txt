@@ -1,0 +1,4 @@
+groupdia
+win.tsv
+../../gd-mgf/raw/
+/tmp/lyy/
