@@ -14,10 +14,10 @@ docker pull zeroli/diamond:1.0
 This will take a few minutes to pull the Diamond image from Docker Hub and cache it on your machine. You can check whether the image *zeroli/diamond:1.0* is successfully pulled by executing *docker images*, and if successfully, it will appear in the images list. Then we create a container based on the Diamond image.
 
 ```shell
-docker run -it --name diamond_test -v /path/to/Diamond/:/path/to/Diamond zeroli/diamond:1.0 bash
+docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
 ```
 
-Docker starts a container named diamond_test and opens a Bash command line within the container for you to control individual components of Diamond. Besides, it is strongly recommended to add -v parameter for implementing data and scripts mounting: mount the local volume /path/to/Diamond (from your machine) to /path/to/Diamond (to your container) instead of directly copy them into the container. After completion, your will enter the container, and you will find that all software tools are installed in the /mnt/software directory. Type in exit and press Enter, or hit Ctrl+D to exit the container.
+Docker starts a container named diamond_test and opens a Bash command line within the container for you to control individual components of Diamond. Besides, it is strongly recommended to add -v parameter for implementing data and scripts mounting: mount the local volume /path/to/Diamond (from your machine) to /mnt/Diamond (to your container) instead of directly copy them into the container. After completion, your will enter the container, and you will find that all software tools are installed in the /mnt/software directory. Type in exit and press Enter, or hit Ctrl+D to exit the container.
 
 ## Nextflow Scripts Execution
 The data processing workflow of Diamond involves complicated command-lines and script tools. We utilize Nextflow to chain them together, which facilitate complex data manipulations. The Nextflow script is saved as a pipeline.nf file in the Diamond folder. Nextflow has been added into the environment variables, and you can execute *nextflow --help* command to any path in the container created above to ensure Nextflow can be correctly used. 
