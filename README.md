@@ -11,7 +11,7 @@ Diamond is containerized by Docker into an image, so Docker must be installed on
 docker pull zeroli/diamond:1.0
 ```
 
-This will take a few minutes to pull the Diamond image from [my Docker Hub](https://hub.docker.com/repository/docker/zeroli/diamond "悬停显示") and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list. Then we create a container based on the Diamond image.
+This will take a few minutes to pull the Diamond image from [my Docker Hub](https://hub.docker.com/repository/docker/zeroli/diamond) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list. Then we create a container based on the Diamond image.
 
 ```shell
 docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
@@ -37,3 +37,21 @@ nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --prof
 ```
 
 Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help`.
+
+# Help Message
+## Library-free mode: 
+
+```
+nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <options> <functions>
+```
+## Library-based mode:
+
+```
+nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber [] <options> <functions>
+```
+## Parameters descriptions
+|parameter|descriptions|
+|-|-|
+|--skipLibGeneration|The parameter means the library-free mode of Diamond will be implemented.|
+|--workdir|Specify the location of the Diamond folder.|
+|--
