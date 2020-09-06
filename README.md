@@ -38,20 +38,24 @@ nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --prof
 
 Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help`.
 
-# Help Message
-## Library-free mode: 
-
-```
-nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <options> <functions>
-```
-## Library-based mode:
-
+## Help Message
+### Library-based mode:
 ```
 nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber [] <options> <functions>
 ```
-## Parameters descriptions
+### Library-free mode: 
+```
+nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <options> <functions>
+```
+
+### Parameters descriptions
 |parameter|descriptions|
 |-|-|
 |--skipLibGeneration|The parameter means the library-free mode of Diamond will be implemented.|
-|--workdir|Specify the location of the Diamond folder.|
-|--
+|--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
+|--centroid|Deliver centroided data. For example: --centriod "/PATH/TO/Diamond/centroid/\*.mzXML"|
+|--profile|Deliver profile data. For example: --profile "/PATH/TO/Diamond/profile/\*.mzXML"|
+|--windows|Deliver the windows file. For example: --windows "/PATH/TO/win.tsv"|
+|--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "100"|
+|--lib|Deliver a ready-made assay library. For example: "/PATH/TO/lib.TraML"|
+|--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
