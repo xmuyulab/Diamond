@@ -42,11 +42,11 @@ Maybe you need to specify the absolute path for the pipeline.nf file, just like 
 Two different execution-commands for the two different modes of Diamond:
 ### Library-based mode:
 ```
-nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber [] <options> <functions>
+nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber [] <Options_01> <Functions>
 ```
 ### Library-free mode: 
 ```
-nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <options> <functions>
+nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <Options_02> <Functions>
 ```
 
 ### Parameters descriptions
@@ -83,7 +83,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
 |--fdr|The threshold of FDR control (Default: "0.01").|
 |--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
-#### functions arguments
+#### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
 |parameter|descriptions|
 |-|-|
