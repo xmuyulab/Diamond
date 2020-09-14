@@ -51,7 +51,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 
 ### Parameters descriptions
 #### Mandatory arguments
-|parameter|descriptions|
+|parameters|descriptions|
 |-|-|
 |--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
 |--centroid|Deliver centroided data. For example: --centriod "/PATH/TO/Diamond/data/centroid/\*.mzXML"|
@@ -62,7 +62,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
 |--skipLibGeneration|The parameter means the library-free mode of Diamond will be implemented.|
 #### Options_01 arguments
-|parameter|descriptions|
+|parameters|descriptions|
 |-|-|
 |--outdir|Specify a results folder. For example: --outdir "/PATH/TO/Diamond/outputs" (Do not contain a slash at the end! Default: the folder named results under the workdir)|
 |--diau_paraNumber|Specify the number of data parallel processing of DIA-Umpire.|
@@ -77,7 +77,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--fdr|The threshold of FDR control (Default: "0.01").|
 |--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 #### Options_02 arguments
-|parameter|descriptions|
+|parameters|descriptions|
 |-|-|
 |--openSWATH|Specify the number of parallel processing for openSWATH.|
 |--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
@@ -85,7 +85,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 #### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
-|parameter|descriptions|
+|parameters|descriptions|
 |-|-|
 |-with-timeline|It renders a timeline.html file that records the time, memory consumption of different processes.|
 |-with-report|It generates a report.html file that records the single core CPU Usage, execution time, memory occupation and Disk read write information of different processes.|
