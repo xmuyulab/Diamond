@@ -58,7 +58,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--profile|Deliver profile data. For example: --profile "/PATH/TO/Diamond/data/profile/\*.mzXML"|
 |--windows|Deliver the windows file. For example: --windows "/PATH/TO/win.tsv"|
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
-|--lib|Deliver a ready-made assay library. For example: "/PATH/TO/lib.TraML"|
+|--lib|Deliver a ready-made assay library. For example: --lib "/PATH/TO/lib.TraML"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
 |--skipLibGeneration|The parameter means the library-free mode of Diamond will be implemented.|
 #### Options_01 arguments
