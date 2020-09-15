@@ -60,7 +60,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
 |--lib|Deliver a ready-made assay library. For example: --lib "/PATH/TO/lib.TraML"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
-|--skipLibGeneration&nbsp; &nbsp; &nbsp; &nbsp;|The parameter means the library-free mode of Diamond will be implemented.|
+|--skipLibGeneration &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | The parameter means the library-free mode of Diamond will be implemented. |
 #### Options_01 arguments
 |parameters|descriptions|
 |-|-|
@@ -79,10 +79,10 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 #### Options_02 arguments
 |parameters|descriptions|
 |---|---|
-|<div style="width: 5cm">--openSWATH</div>|Specify the number of parallel processing for openSWATH.|
-|<div style="width: 5cm">--pp_paraNumber</div>|Specify the number of parallel processing for PyProphet.|
-|<div style="width: 5cm">--fdr</div>|The threshold of FDR control (Default: "0.01").|
-|<div style="width: 5cm">--statistics_mode</div>|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|--openSWATH|Specify the number of parallel processing for openSWATH.|
+|--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
+|--fdr|The threshold of FDR control (Default: "0.01").|
+|--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 #### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
 |parameters|descriptions|
