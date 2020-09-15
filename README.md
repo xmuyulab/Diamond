@@ -57,40 +57,43 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 #### Mandatory arguments
 |parameters|descriptions|
 |---|---|
-|--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
-|--centroid|Deliver centroided data. For example: --centriod "/PATH/TO/Diamond/data/centroid/\*.mzXML"|
-|--profile|Deliver profile data. For example: --profile "/PATH/TO/Diamond/data/profile/\*.mzXML"|
-|--windows|Deliver the windows file. For example: --windows "/PATH/TO/win.tsv"|
+|--workdir|Specify the location of the Diamond folder. For example: --workdir "/path/to/Diamond" (Do not contain a slash at the end!)|
+|--centroid|Deliver centroided data. For example: --centriod "/path/to/Diamond/data/centroid/\*.mzXML"|
+|--profile|Deliver profile data. For example: --profile "/path/to/Diamond/data/profile/\*.mzXML"|
+|--fasta|Deliver the database file. For example: --fasta "/path/to/Diamond/common/db.fasta"|
+|--windows|Deliver the windows file. For example: --windows "/path/to/Diamond/common/win.tsv.32"|
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
-|--lib|Deliver a ready-made assay library. For example: --lib "/PATH/TO/lib.TraML"|
-|--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
+|--lib|Deliver a ready-made assay library. For example: --lib "/path/to/lib.TraML"|
+|--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/irt.TraML"|
 |--skipLibGeneration| The parameter means the library-free mode of Diamond will be implemented. |
 #### Options_01 arguments
 |parameters|descriptions|
-|-|-|
-|--outdir|Specify a results folder. For example: --outdir "/PATH/TO/Diamond/outputs" (Do not contain a slash at the end! Default: the folder named results under the workdir)|
-|--diau_paraNumber|Specify the number of data parallel processing of DIA-Umpire.|
-|--mgf_mzML_paraNumber|Specify the number of data parallel processing for file format conversion.|
-|--mzML_part_paraNumber|Specify the number of parallel processing for dividing mzML files.|
-|--comet_paraNumber|Specify the number of parallel processing of Comet searching.|
-|--tandem_paraNumber|Specify the number of parallel processing of X!Tandem searching.|
-|--merge_paraNumber|Specify the number of parallel processing for merging searching results.|
-|--xinteract_paraNumber|Specify the number of parallel processing for xinteract.|
-|--openSWATH|Specify the number of parallel processing for openSWATH.|
-|--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
+|---|---|
+|--outdir|Specify a results folder. For example: --outdir "/path/to/Diamond/outputs" (Do not contain a slash at the end! Default: the folder named results under the workdir)|
+|--diau_paraNumber|Specify the number of data parallel processing of DIA-Umpire (Default: "4").|
+|--mgf_mzML_paraNumber|Specify the number of data parallel processing for file format conversion (Default: "4").|
+|--mzML_part_paraNumber|Specify the number of parallel processing for dividing mzML files (Default: "4").|
+|--comet_paraNumber|Specify the number of parallel processing of Comet searching (Default: "4").|
+|--tandem_paraNumber|Specify the number of parallel processing of X!Tandem searching (Default: "20").|
+|--merge_paraNumber|Specify the number of parallel processing for merging searching results (Default: "9").|
+|--xinteract_paraNumber|Specify the number of parallel processing for xinteract (Default: "30").|
+|--openSWATH_paraNumber|Specify the number of parallel processing for openSWATH (Default: "4").|
+|--pp_paraNumber|Specify the number of parallel processing for PyProphet (Default: "9").|
 |--fdr|The threshold of FDR control (Default: "0.01").|
-|--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|--pp_score_statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|--pp_score_lambda|The lambda value for storeys method (Default: "0.4").|  
 #### Options_02 arguments
 |parameters|descriptions|
 |---|---|
-|--openSWATH|Specify the number of parallel processing for openSWATH.|
-|--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
+|--openSWATH_paraNumber|Specify the number of parallel processing for openSWATH (Default: "4").|
+|--pp_paraNumber|Specify the number of parallel processing for PyProphet (Default: "9").|
 |--fdr|The threshold of FDR control (Default: "0.01").|
-|--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|--pp_score_statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|--pp_score_lambda|The lambda value for storeys method (Default: "0.4").| 
 #### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
 |parameters|descriptions|
-|-|-|
+|---|---|
 |-with-timeline|It renders a timeline.html file that records the time, memory consumption of different processes.|
 |-with-report|It generates a report.html file that records the single core CPU Usage, execution time, memory occupation and Disk read write information of different processes.|
 |-with-trace|It creates an execution tracing file that contains some useful information about each process executed in your pipeline script, including: submission time, start time, completion time, cpu and memory used.|
