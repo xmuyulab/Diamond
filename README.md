@@ -51,14 +51,6 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 
 ### Parameters descriptions
 #### Mandatory arguments
-<style>
-table th:first-of-type {
-    width: 4cm;
-}
-table th:nth-of-type(2) {
-    width: 150pt;
-}
-</style>
 |parameters|descriptions|
 |---|---|
 |--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
@@ -68,7 +60,7 @@ table th:nth-of-type(2) {
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
 |--lib|Deliver a ready-made assay library. For example: --lib "/PATH/TO/lib.TraML"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
-|--skipLibGeneration|The parameter means the library-free mode of Diamond will be implemented.|
+|--skipLibGeneration<img width=5cm/>|The parameter means the library-free mode of Diamond will be implemented.|
 #### Options_01 arguments
 |parameters|descriptions|
 |-|-|
