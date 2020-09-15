@@ -5,7 +5,7 @@
 In the suitation when an assay libraries is available, we choose Diamond's library-based mode, as the blue route shown in the picture above, an assay library will be generated first and in the suitation when an assay library is not available, we choose the Diamond's library-free mode, as the green route shown in the picture above, the library building step will be skipped.
 
 ## Diamond Application
-Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the Docker documentation (https://docs.docker.com/engine). Make sure that Docker is up and running in the background. On your machine, please start a Terminal session. Execute the following steps within the console:
+Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the [Docker documentation](https://docs.docker.com/engine). Make sure that Docker is up and running in the background. On your machine, please start a Terminal session. Execute the following steps within the console:
 
 ```shell
 docker pull zeroli/diamond:1.0
@@ -22,21 +22,25 @@ Docker starts a container named diamond_test and opens a Bash command line withi
 ## Nextflow Scripts Execution
 Nextflow has been added into the environment variables, and you can execute `nextflow --help` command to any path in the container created above to ensure Nextflow can be correctly used. The Nextflow script is saved as a pipeline.nf file in the Diamond folder.
 
-The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289).  We select the SGS data sets of yeast that you are interested in and store them in a specific folder, for example, the /Diamond/data. Assuming your are in the Diamond folder, containing yeast MS data, the common folder and pipeline.nf. Now you can start to process MS data of yeast with the aim to build a spectral library:
+The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289).  We select the raw SGS data sets of yeast and store them in a specific folder, for example, the /Diamond/data/profile. Centroid data, which can be obtained by preprocessing raw data with ProteoWizard [ProteoWizard] are preferable for library-based mode of Diamond and are recommendably stored in the /Diamond/data/centroid folder. 
+
+Assuming your are in the Diamond folder, containing yeast MS data, the common folder and pipeline.nf. Now you can start Diamond with the aim to build an assay library by executing the following command:
 
 ```shell
-nextflow run pipeline.nf --workdir "/path/to/Diamond" --centroid "/path/to/Diamond/data/yeast/centroid/*.mzXML" --profile "/path/to/Diamond/data/yeast/profile/*.mzXML" --fasta "/path/to/Diamond/data/yeast/sgs_yeast_decoy.fasta" --winodws "/path/to/Diamond/data/yeast/win.tsv.32" --windowsNumber "32" --outdir "/path/to/results_folder"
+nextflow run pipeline.nf --workdir "/path/to/Diamond" --centroid "/path/to/Diamond/data/centroid/*.mzXML" --profile "/path/to/Diamond/data/profile/*.mzXML" --fasta "/path/to/Diamond/common/sgs_yeast_decoy.fasta" --winodws "/path/to/Diamond/common/win.tsv.32" --windowsNumber "32" --outdir "/path/to/results_folder"
 ```
 
-Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --outdir parameter is optional. The directory it specifies is used to store the data processing results. The default is the folder named results in the workdir directory. Please execute `nextflow run pipeline.nf --help` to view the detailed information of parameter passing.
+Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --outdir parameter is optional. The directory it specifies is used to store the data processing results. The default is the folder named results in the workdir directory. Please execute `nextflow run pipeline.nf --help` or refer to the Help Message section to view the detailed information of parameter passing.
 
-We also provide a set of raw MS data in the data folder with a spectral library and an irt file, which can be analyzed by executing the following command in your terminal. Assuming you are in the Diamond folder, containing MS data, the common folder and pipeline.nf. Now you can directly start the targeted analysis of MS data with an input spectral library:  
+The assay library and the irt file are also available at [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289), you can download them to local machine and implement the library-free mode of Diamond. 
+
+Assuming you are in the Diamond folder, containing yeast MS data (including an assay library and an irt file), the common folder and pipeline.nf. Now you can directly start the targeted analysis of MS data with a ready-made assay library:  
 
 ```shell
-nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/*.mzXML" --lib "/path/to/lib_file" --irt "/path/to/irt_file" --windows "/path/to/windows_file" --outdir "/path/to/results_folder"
+nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/*.mzXML" --lib "/path/to/lib_file" --irt "/path/to/irt_file" --windows "/path/to/Diamond/common/win.tsv.32" --outdir "/path/to/results_folder"
 ```
 
-Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building a spectral library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help`.
+Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building an assay library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help` or refer to the Help Message section.
 
 ## Help Message
 Two different execution-commands for the two different modes of Diamond:
