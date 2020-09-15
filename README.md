@@ -52,7 +52,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 ### Parameters descriptions
 #### Mandatory arguments
 |parameters|descriptions|
-|-|-|
+|---|---|
 |--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
 |--centroid|Deliver centroided data. For example: --centriod "/PATH/TO/Diamond/data/centroid/\*.mzXML"|
 |--profile|Deliver profile data. For example: --profile "/PATH/TO/Diamond/data/profile/\*.mzXML"|
@@ -60,7 +60,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
 |--lib|Deliver a ready-made assay library. For example: --lib "/PATH/TO/lib.TraML"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/PATH/TO/irt.TraML"|
-|<div style="width:5cm">--skipLibGeneration</div>|The parameter means the library-free mode of Diamond will be implemented.|
+|<div style="width: 5cm">--skipLibGeneration</div>|The parameter means the library-free mode of Diamond will be implemented.|
 #### Options_01 arguments
 |parameters|descriptions|
 |-|-|
