@@ -51,9 +51,9 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 
 ### Parameters descriptions
 #### Mandatory arguments
-|parameters<img width=60/>|descriptions|
+|parameters|descriptions|
 |---|---|
-|--workdir|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
+|--workdir<img width=60/>|Specify the location of the Diamond folder. For example: --workdir "/PATH/TO/Diamond" (Do not contain a slash at the end!)|
 |--centroid|Deliver centroided data. For example: --centriod "/PATH/TO/Diamond/data/centroid/\*.mzXML"|
 |--profile|Deliver profile data. For example: --profile "/PATH/TO/Diamond/data/profile/\*.mzXML"|
 |--windows|Deliver the windows file. For example: --windows "/PATH/TO/win.tsv"|
