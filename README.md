@@ -65,7 +65,7 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--windowsNumber|Deliver the number of the windows. For example: --windowsNumber "32"|
 |--lib|Deliver a ready-made assay library. For example: --lib "/path/to/lib.TraML"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/irt.TraML"|
-|--skipLibGeneration| The parameter means the library-free mode of Diamond will be implemented. |
+|--skipLibGeneration    | The parameter means the library-free mode of Diamond will be implemented. |
 #### Options_01 arguments
 |parameters|descriptions|
 |---|---|
