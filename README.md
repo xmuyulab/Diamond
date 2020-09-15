@@ -78,11 +78,11 @@ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] 
 |--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 #### Options_02 arguments
 |parameters|descriptions|
-|-|-|
-|--openSWATH|Specify the number of parallel processing for openSWATH.|
-|--pp_paraNumber|Specify the number of parallel processing for PyProphet.|
-|--fdr|The threshold of FDR control (Default: "0.01").|
-|--statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
+|---|---|
+|<div style="width: 5cm">--openSWATH</div>|Specify the number of parallel processing for openSWATH.|
+|<div style="width: 5cm">--pp_paraNumber</div>|Specify the number of parallel processing for PyProphet.|
+|<div style="width: 5cm">--fdr</div>|The threshold of FDR control (Default: "0.01").|
+|<div style="width: 5cm">--statistics_mode</div>|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 #### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
 |parameters|descriptions|
