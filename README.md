@@ -2,7 +2,7 @@
 
 ## Flowchart of Diamond
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/fig01.png)
-In the suitation when an assay libraries is available, we choose Diamond's library-based mode, as the blue route shown in the picture above, an assay library will be generated first and in the suitation when an assay library is not available, we choose the Diamond's library-free mode, as the green route shown in the picture above, the library building step will be skipped.
+In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue route shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green route shown in the picture above, the library building step will be skipped.
 
 ## Diamond Application
 Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the [Docker documentation](https://docs.docker.com/engine). Make sure that Docker is up and running in the background. On your machine, please start a Terminal session. Execute the following steps within the console:
@@ -17,38 +17,38 @@ This will take a few minutes to pull the Diamond image from [Docker Hub](https:/
 docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
 ```
 
-Docker starts a container named diamond_test and opens a Bash command line within the container for you to control individual components of Diamond. Besides, it is strongly recommended to add -v parameter for implementing data and scripts mounting: mount the local volume /path/to/Diamond (from your machine) to /mnt/Diamond (to your container) instead of directly copy them into the container. After completion, your will enter the container, and you will find that all software tools are installed in the /mnt/software directory. Type in exit and press Enter, or hit Ctrl+D to exit the container.
+Docker starts a container named diamond_test and opens a Bash command line within the container for you to control individual components of Diamond. Besides, it is strongly recommended to add -v parameter for implementing data and scripts mounting: mount the local volume /path/to/Diamond (from your machine) to /mnt/Diamond (to your container) instead of directly copy them into the container. After completion, your will enter the container, and you will find that all software tools are installed in the /mnt/software directory. Type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container.
 
 ## Nextflow Scripts Execution
 Nextflow has been added into the environment variables, and you can execute `nextflow --help` command to any path in the container created above to ensure Nextflow can be correctly used. The Nextflow script is saved as a pipeline.nf file in the Diamond folder.
 
-The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289).  We select the raw SGS data sets of yeast and store them in a specific folder, for example, the /Diamond/data/profile. Centroid data, which can be obtained by preprocessing raw data with ProteoWizard [ProteoWizard] are preferable for library-based mode of Diamond and are recommendably stored in the /Diamond/data/centroid folder. 
+The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289). We select the raw SGS data sets of yeast and store them in a specific folder, for example, the /Diamond/data/profile. Centroid data, which can be obtained by preprocessing raw data with ProteoWizard [ProteoWizard] are preferable for library-free mode of Diamond and are recommendably stored in the /Diamond/data/centroid folder. 
 
 Assuming your are in the Diamond folder, containing yeast MS data, the common folder and pipeline.nf. Now you can start Diamond with the aim to build an assay library by executing the following command:
 
 ```shell
-nextflow run pipeline.nf --workdir "/path/to/Diamond" --centroid "/path/to/Diamond/data/centroid/*.mzXML" --profile "/path/to/Diamond/data/profile/*.mzXML" --fasta "/path/to/Diamond/common/sgs_yeast_decoy.fasta" --winodws "/path/to/Diamond/common/win.tsv.32" --windowsNumber "32" --outdir "/path/to/results_folder"
+nextflow run pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/common/sgs_yeast_decoy.fasta" --winodws "/mnt/Diamond/common/win.tsv.32" --windowsNumber "32"
 ```
 
-Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --outdir parameter is optional. The directory it specifies is used to store the data processing results. The default is the folder named results in the workdir directory. Please execute `nextflow run pipeline.nf --help` or refer to the Help Message section to view the detailed information of parameter passing.
+Maybe you need to specify the absolute path for the pipeline.nf file, just like /mnt/Diamond/pipeline.nf. The data processing results will be stored in the folder named results under the workdir directory by default. Please execute `nextflow run pipeline.nf --help` or refer to the Help Message section to view the detailed information of parameter passing.
 
-The assay library and the irt file are also available at [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289), you can download them to local machine and implement the library-free mode of Diamond. 
+The assay library and the irt file are also available at [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289), you can download them into the `/Diamond/data` folder in your local machine and implement the library-based mode of Diamond. 
 
-Assuming you are in the Diamond folder, containing yeast MS data (including an assay library and an irt file), the common folder and pipeline.nf. Now you can directly start the targeted analysis of MS data with a ready-made assay library:  
+Assuming you are in the Diamond folder in the container, containing yeast MS data (including an assay library and an irt file), the common folder and pipeline.nf. Now you can directly start the targeted analysis of MS data with a ready-made assay library:  
 
 ```shell
-nextflow run pipeline.nf --skipLibGeneration --workdir "/path/to/Diamond" --profile "/path/to/Diamond/data/profile/*.mzXML" --lib "/path/to/lib_file" --irt "/path/to/irt_file" --windows "/path/to/Diamond/common/win.tsv.32" --outdir "/path/to/results_folder"
+nextflow run pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/lib_file_name" --irt "/mnt/Diamond/data/irt_file_name" --windows "/mnt/Diamond/common/win.tsv.32"
 ```
 
-Maybe you need to specify the absolute path for the pipeline.nf file, just like /path/to/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building an assay library will be skipped. The --outdir parameter here is the same as that mentioned above and is optional too. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help` or refer to the Help Message section.
+Maybe you need to specify the absolute path for the pipeline.nf file, just like /mnt/Diamond/pipeline.nf. The --skipLibGeneration parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named results in the workdir directory by default. For elaborate information of parameter passing, execute the command `nextflow run pipeline.nf --help` or refer to the Help Message section.
 
 ## Help Message
 Two different execution-commands for the two different modes of Diamond:
-### Library-based mode:
+### Library-free mode:
 ```
 nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber [] <Options_01> <Functions>
 ```
-### Library-free mode: 
+### Library-based mode: 
 ```
 nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --lib [] --irt [] --windows [] <Options_02> <Functions>
 ```
