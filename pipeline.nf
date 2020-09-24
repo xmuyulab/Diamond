@@ -228,7 +228,7 @@ def Warnings() {
             exit 0
         }
         if (params.windows == null) {
-            println "\nError:\n     The windows file is not found! Please confirm it exists" +
+            println "\nError:\n     The windows file is not found! Please confirm it exists " +
             "and add --windows parameter in the command-line!\n"
             exit 0
         }
