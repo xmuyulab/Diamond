@@ -22,7 +22,7 @@ Docker starts a container named `diamond_test` and opens a Bash command line wit
 ## Nextflow Scripts Execution
 Nextflow has been added into the environment variables, and you can execute `nextflow --help` command to any path in the container created above to ensure Nextflow can be correctly used. The Nextflow script is saved as a `pipeline.nf` file in the Diamond folder.
 
-The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289). We select the raw SGS data sets of yeast and store them in a specific folder, for example, the `/Diamond/data/profile`. Centroid data, which can be obtained by preprocessing raw data with ProteoWizard [ProteoWizard] are preferable for library-free mode of Diamond and are recommendably stored in the `/Diamond/data/centroid` folder. 
+The SWATH-MS Gold Standard (SGS) data sets are available from the PeptideAtlas raw data repository with accession number [PASS00289](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/PASS_View?identifier=PASS00289). We select the raw SGS data sets of yeast and store them in a specific folder, for example, the `/Diamond/data/profile`. Centroid data, which can be obtained by preprocessing raw data with [ProteoWizard](http://proteowizard.sourceforge.net/download.html) are preferable for library-free mode of Diamond and are recommendably stored in the `/Diamond/data/centroid` folder. 
 
 Assuming your are in the Diamond folder in the container, containing yeast MS data, the common folder and pipeline.nf. Now you can start Diamond with the aim to build an assay library by executing the following command:
 
