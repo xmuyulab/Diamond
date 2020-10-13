@@ -11,7 +11,7 @@ Diamond is containerized by Docker into an image, so Docker must be installed on
 docker pull zeroli/diamond:1.0
 ```
 
-This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/repository/docker/zeroli/diamond) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list. A container based on the Diamond image can be created by running the following command.
+This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/r/zeroli/diamond/) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list. A container based on the Diamond image can be created by running the following command.
 
 ```shell
 docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
