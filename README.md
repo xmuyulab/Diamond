@@ -15,7 +15,7 @@ mkdir data data/centroid data/profile
 ```
 Finally, download the example MS data.
 
-(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03](), download them one by one and store them in the centroid folder;
+&emsp(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03](), download them one by one and store them in the centroid folder;
 download the profile data ([pdata_01](), [pdata_02](), [pdata_03]()) and store them in the profile folder; download the windows file ([win.tsv]()) and store it in the data folder; download the
 ## Diamond Acquisition
 Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session. Execute the following command within the console:
