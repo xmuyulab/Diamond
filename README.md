@@ -14,7 +14,7 @@ cd /path/to/Diamond
 mkdir data data/centroid data/profile
 ```
 Finally, download the example MS data.
-
+<br/>
 &emsp;(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03](), download them one by one and store them in the centroid folder;
 download the profile data ([pdata_01](), [pdata_02](), [pdata_03]()) and store them in the profile folder; download the windows file ([win.tsv]()) and store it in the data folder; download the
 ## Diamond Acquisition
