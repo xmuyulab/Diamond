@@ -15,17 +15,19 @@ mkdir data data/centroid data/profile
 ```
 Finally, download the example MS data.
 <br/>
-&emsp;(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03](), download them one by one and store them in the centroid folder;
-download the profile data ([pdata_01](), [pdata_02](), [pdata_03]()) and store them in the profile folder; download the windows file ([win.tsv]()) and store it in the data folder; download the
+&emsp;&emsp;(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03](), download them one by one and store them in the centroid folder;
+<br/>
+&emsp;&emsp;(2) three profile data files: [pdata_01](), [pdata_02](), [pdata_03](), download them one by one and store them in the profile folder.
+
 ## Diamond Acquisition
-Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session. Execute the following command within the console:
+Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session. Execute the following command within the console:
 ```shell
 docker pull zeroli/diamond:1.0
 ```
-This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/r/zeroli/diamond/) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list.  
+This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/r/zeroli/diamond/) to your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list.  
 
 ## Data Analysis
-首先创建通过刚刚拉取的diamond镜像创建一个容器，并将diamond文件夹挂载到容器内，进入到容器后切换到diamond文件夹下
+首先创建通过刚刚拉取的diamond镜像创建一个容器，并将Diamond文件夹挂载到容器内，进入到容器后切换到diamond文件夹下
 ### Library-free mode
 
 ### Library-based mode
