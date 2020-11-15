@@ -52,13 +52,13 @@ Execute the following command in your terminal to start the analysis of MS data 
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --winodws "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
 ```
-The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the Help Message section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 ### Library-based mode
 Execute the following command in your terminal to start the analysis of MS data by providing an assay library:
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/lib.os.TraML" --irt "/mnt/Diamond/data/irt.TraML" --windows "/mnt/Diamond/data/win.tsv.32"
 ```
-The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the Help Message section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 
 # Help Message
 Two different execution-commands for the two different modes of Diamond. This help message can also be obtained by executing the following command in the container：
@@ -104,7 +104,7 @@ nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "" --profile
 |--pp_score_statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 |--pp_score_lambda|The lambda value for storeys method (Default: "0.4").|  
 
-Note: We process the MS data on a machine with a 64-core CPU and 256G memory. The greater the number of parallel data processing, the higher the memory and CPU resources consumed. If the memory is insufficient, you can appropriately reduce the number of parallel data processing.
+**Note:** We process the MS data on a machine with a 64-core CPU and 256G memory. The greater the number of parallel data processing, the higher the memory and CPU resources consumed. If the memory is insufficient, you can appropriately reduce the number of parallel data processing.
 
 ### Options_library_based arguments
 |parameters|descriptions|
