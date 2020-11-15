@@ -111,7 +111,9 @@ nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "" --profile
 |--fdr|The threshold of FDR control (Default: "0.01").|
 |--pp_score_statistics_mode|The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".|
 |--pp_score_lambda|The lambda value for storeys method (Default: "0.4").| 
+
 Note: We process the MS data on a machine with a 64-core CPU and 256G memory. The greater the number of parallel data processing, the higher the memory and CPU resources consumed. If the memory is insufficient, you can appropriately reduce the number of parallel data processing.
+
 ### Functions arguments
 These parameters are built-in functions of Nextflow, they can generate some visual graphics, which or show the total time consumption of the pipeline, or show the time consumption, memory occupation, cpu usage of each process. Interested can add these parameters to observe relative information.
 |parameters|descriptions|
