@@ -1,31 +1,28 @@
-# Diamond: A Multi-Modal DIA Mass Spectrometry Data Processing Pipeline
-
-## Flowchart of Diamond
+# Flowchart of Diamond
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/fig01.png)
 In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue route shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green route shown in the picture above, the library building step will be skipped.
 
+# An Instruction on the Analysis of Example Datasets
+## Data Preparation
+Firstly, please execute the following command in your terminal to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
+```shell
+git clone https://github.com/xmuyulab/Diamond.git
+```
+Then, execute the following command step by step to create a series of folders to store the example MS data.
+```shell
+cd /path/to/Diamond
+mkdir data data/centroid data/profile
+```
+Finally, download the example MS data.
+(1) three centroid data files: [cdata_01](), [cdata_02](), [cdata_03]()
+download them one by one and store them in the centroid folder.
+download the profile data ([pdata_01](), [pdata_02](), [pdata_03]()) and store them in the profile folder; download the windows file ([win.tsv]()) and store it in the data folder; download the
 ## Diamond Acquisition
 Diamond is containerized by Docker into an image, so Docker must be installed on the host machine. The installation of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session. Execute the following command within the console:
 ```shell
 docker pull zeroli/diamond:1.0
 ```
-This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/r/zeroli/diamond/) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list. 
-
-## Data Preparation
-First, please execute the following command in your terminal to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
-```shell
-git clone https://github.com/xmuyulab/Diamond.git
-```
-Please remember the absolute path of the Diamond folder, which will serve as the main working directory for MS data analysis.
-
-Then, execute the following command, which aims to create a series of folders to store the example MS data we provided.
-```shell
-cd /path/to/Diamond
-mkdir data
-cd ./data
-mkdir centroid profile 
-```
-At last, download the centroid data ([cdata_01](), [cdata_02](), [cdata_03]()) and store them in the centroid folder; download the profile data ([pdata_01](), [pdata_02](), [pdata_03]()) and store them in the profile folder; download the windows file ([win.tsv]()) and store it in the data folder; download the 
+This will take a few minutes to pull the Diamond image from [Docker Hub](https://hub.docker.com/r/zeroli/diamond/) and cache it on your machine. You can check whether the image `zeroli/diamond:1.0` is successfully pulled by executing `docker images`, and if successfully, it will appear in the images list.  
 
 ## Data Analysis
 首先创建通过刚刚拉取的diamond镜像创建一个容器，并将diamond文件夹挂载到容器内，进入到容器后切换到diamond文件夹下
