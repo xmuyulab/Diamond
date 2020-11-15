@@ -39,7 +39,7 @@ docker start diamond_test
 docker exec -it diamond_test bash 
 cd /mnt/Diamond
 ```
-Note: type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container.
+
 ## Data analysis
 The Nextflow script is saved as a `pipeline.nf` file in the `Diamond` folder. Diamond's two modes: library-free and library-based execution commands are as follows.
 ### Library-free mode
@@ -54,6 +54,8 @@ Execute the following command in your terminal to start the analysis of MS data 
 nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/lib.os.TraML" --irt "/mnt/Diamond/data/irt.TraML" --windows "/mnt/Diamond/data/win.tsv.32"
 ```
 The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+
+**Note:** type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container.
 
 # Help Message
 Two different execution-commands for the two different modes of Diamond. This help message can also be obtained by executing the following command in the container：
