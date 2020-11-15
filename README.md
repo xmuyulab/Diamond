@@ -4,26 +4,21 @@ In the suitation when an assay library is not available, we choose Diamond's lib
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
-Firstly, please execute the following command in your terminal to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
+First, please execute the following command in your terminal to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
 ```shell
 git clone https://github.com/xmuyulab/Diamond.git
 ```
-Then, execute the following command step by step to create a series of folders to store the example MS data.
-```shell
-cd /path/to/Diamond
-mkdir data data/centroid data/profile
-```
-Finally, download the example MS data. Provided here are the three mzXML files in profile mode in SWATH-MS Gold Standard (SGS) data of yeast, which are available from the PeptideAtlas raw data repository with accession number [PASS00289](http://www.peptideatlas.org/PASS/PASS00289) and the three mzXML files in centroid mode, which can be obtained by preprocessing the profile data with [ProteoWizard](http://proteowizard.sourceforge.net/download.html).
+Then , download the example MS data. Provided here are the three mzXML files in profile mode in SWATH-MS Gold Standard (SGS) data of yeast, which are available from the PeptideAtlas raw data repository with accession number [PASS00289](http://www.peptideatlas.org/PASS/PASS00289) and the three mzXML files in centroid mode, which can be obtained by preprocessing the profile data with [ProteoWizard](http://proteowizard.sourceforge.net/download.html).
 
-(1) three profile data files: please visit [PASS00289](http://www.peptideatlas.org/PASS/PASS00289), click on the link "ftp://PASS00289:XY4524h@ftp.peptideatlas.org/" at the bottom of the page, select the three files `napedro_L120228_00{1,2,3}_SW.mzXML.gz` under the `/SGS/mzxml/` folder, download and store them in the profile folder. Note that the profile files are in a compressed format, so execute the following command to decompress them.
+(1) three profile data files: please visit [PASS00289](http://www.peptideatlas.org/PASS/PASS00289), click on the link "ftp://PASS00289:XY4524h@ftp.peptideatlas.org/" at the bottom of the page, select the three files `napedro_L120228_00{1,2,3}_SW.mzXML.gz` under the `/SGS/mzxml` folder, download and store them in the `/Diamond/data/profile` folder. Note that the profile files are in a compressed format, so execute the following command to decompress them.
 ```shell
 cd /path/to/Diamond/data/profile
 gunzip ./napedro_L120228_00{1,2,3}_SW.mzXML.gz
 ```
-(2) three centroid data files: please visit [cMS01](), [cMS02](), [cMS03]() respectively, download and store them in the centroid folder. Note that the centroid files are in a compressed format, so execute the following command to decompress them.
+(2) three centroid data files: please visit [cMS01](), [cMS02](), [cMS03]() respectively, download and store them in the `/Diamond/data/centroid` folder. Note that the centroid files are in a compressed format, so execute the following command to decompress them.
 ```shell
 cd /path/to/Diamond/data/centroid
-gunzip ./centroided_napedro_L120228_00{1,2,3}_SW.mzXML.gz
+gunzip ./centroid_napedro_L120228_00{1,2,3}_SW.mzXML.gz
 ```
 
 ## Diamond acquisition
