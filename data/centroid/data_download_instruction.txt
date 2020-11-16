@@ -1,0 +1,3 @@
+The three centroid data files here we provided were obtained by preprocessing the three mzXML file in profile mode by utilizing ProteoWizard.
+You need to download the centroid MS data and store them in this folder.
+For details, please refer to the Data preparation section of the README under the Diamond folder.
