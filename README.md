@@ -31,13 +31,14 @@ This will take a few minutes to pull the Diamond image from [Docker Hub](https:/
 ## Container creation and startup
 Create a container (named diamond_test) based on the image `zeroli/diamond:1.0` and simultaneously mount the local folder `/path/to/Diamond` to the folder `/mnt/Diamond` (in the container) by running the following command in your terminal:
 ```shell
-docker run --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
+docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
 ```
-Next, start and enter the container, and then switch to the folder `/mnt/Diamond` by executing the following commands in order:
+After the above command is executed, you will enter the container. Please switch to the folder `/mnt/Diamond` by executing `cd /mnt/Diamond` in your terminal.
+
+**Note:** Type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container. Please follow the commands below to re-enter the container after exiting:
 ```shell
 docker start diamond_test
-docker exec -it diamond_test bash 
-cd /mnt/Diamond
+docker exec -it diamond_test bash
 ```
 
 ## Data analysis
@@ -54,8 +55,6 @@ Execute the following command in your terminal to start the analysis of MS data 
 nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/lib.os.TraML" --irt "/mnt/Diamond/data/irt.TraML" --windows "/mnt/Diamond/data/win.tsv.32"
 ```
 The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
-
-**Note:** type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container.
 
 # Help Message
 Two different execution-commands for the two different modes of Diamond. This help message can also be obtained by executing the following command in the container：
