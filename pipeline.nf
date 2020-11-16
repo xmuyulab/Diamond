@@ -305,7 +305,7 @@ if (params.skipLibGeneration == false) {
 ///////////////////////////////////////////////////////////////////////////////
 
 
-//if skipLibGeneration, diau_gd will be skipped
+//if skipLibGeneration, diau will be skipped
 (centroid_mzXMLs) = (params.skipLibGeneration ? [Channel.empty()] : [centroid_input])
 
 //input:mzXML output:mgf
