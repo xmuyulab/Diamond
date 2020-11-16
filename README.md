@@ -76,14 +76,14 @@ nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "" --profile
 |parameters|descriptions|
 |---|---|
 |--workdir|Specify the location of the Diamond folder. For example: --workdir "/path/to/Diamond" (Do not contain a slash at the end!)|
-|--centroid|Deliver centroided data. For example: --centriod "/path/to/Diamond/data/centroid/\*.mzXML"|
+|--centroid|Deliver centroided data. For example: --centroid "/path/to/Diamond/data/centroid/\*.mzXML"|
 |--profile|Deliver profile data. For example: --profile "/path/to/Diamond/data/profile/\*.mzXML"|
 |--fasta|Deliver the database file. For example: --fasta "/path/to/Diamond/data/sgs_yeast_decoy.fasta"|
 |--windows|Deliver the windows file. For example: --windows "/path/to/Diamond/data/win.tsv.32"|
-|--windowsNumber|Deliver the number of the windows for selecting a suitable diau.params file. For example: --windowsNumber "32"|
-|--lib|Deliver a ready-made assay library. For example: --lib "/path/to/Diamond/data/lib.os.TraML"|
+|--windowsNumber|Deliver the number of the windows to select a suitable parameter file for DIA-Umpire. For example: --windowsNumber "32"|
 |--irt|Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/Diamond/data/irt.TraML"|
-|--skipLibGeneration|The parameter means the step of building an assay library will be skipped and Diamond's library-based mode will be choosed.|
+|--lib|Deliver a ready-made assay library. For example: --lib "/path/to/Diamond/data/lib.os.TraML"|
+|--skipLibGeneration|The parameter means the step of building an assay library will be skipped and Diamond's library-based mode will be choosed. No need to give a specific parameter.|
 ### Options_library_free arguments
 |parameters|descriptions|
 |---|---|
@@ -106,6 +106,7 @@ nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "" --profile
 ### Options_library_based arguments
 |parameters|descriptions|
 |---|---|
+|--outdir|Specify a results folder. For example: --outdir "/path/to/Diamond/outputs" (Do not contain a slash at the end! Default: the folder named results under the workdir)|
 |--openSWATH_paraNumber|Specify the maximum number of parallel data processing for openSWATH (Default: "4").|
 |--pp_paraNumber|Specify the maximum number of parallel data processing for PyProphet (Default: "9").|
 |--fdr|The threshold of FDR control (Default: "0.01").|
