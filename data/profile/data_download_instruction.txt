@@ -1,0 +1,4 @@
+You need to download the profile MS data and store them in this folder.
+Here we provided three mzXML files in profile mode in SWATH-MS Gold Standard (SGS) data of yeast, 
+which are available from the PeptideAtlas raw data repository with accession number PASS00289. 
+For details, please refer to the Data preparation section of the README under the Diamond folder.
