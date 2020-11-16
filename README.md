@@ -31,7 +31,7 @@ This will take a few minutes to pull the Diamond image from [Docker Hub](https:/
 ## Container creation and startup
 Create a container (named diamond_test) based on the image `zeroli/diamond:1.0` and simultaneously mount the local folder `/path/to/Diamond` to the folder `/mnt/Diamond` (in the container) by running the following command in your terminal:
 ```shell
-docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond zeroli/diamond:1.0 bash
+docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond/ zeroli/diamond:1.0 bash
 ```
 After the above command is executed, you will enter the container. Please switch to the folder `/mnt/Diamond` by executing `cd /mnt/Diamond` in your terminal.
 
