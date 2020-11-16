@@ -15,7 +15,7 @@ Then , download the example MS data. Provided here are the three mzXML files in 
 cd /path/to/Diamond/data/profile
 gunzip ./napedro_L120228_00{1,2,3}_SW.mzXML.gz
 ```
-(2) three centroid data files: please visit [cMS01](), [cMS02](), [cMS03]() respectively, download and store them in the `/Diamond/data/centroid` folder. Note that the centroid files are in a compressed format, so execute the following command to decompress them.
+(2) three centroid data files: please visit [cMS01](https://zeroli.oss-cn-hangzhou.aliyuncs.com/SGS_data_yeast/centroid/centroid_napedro_L120228_001_SW.mzXML.gz), [cMS02](https://zeroli.oss-cn-hangzhou.aliyuncs.com/SGS_data_yeast/centroid/centroid_napedro_L120228_002_SW.mzXML.gz), [cMS03](https://zeroli.oss-cn-hangzhou.aliyuncs.com/SGS_data_yeast/centroid/centroid_napedro_L120228_003_SW.mzXML.gz) respectively, download and store them in the `/Diamond/data/centroid` folder. Note that the centroid files are in a compressed format, so execute the following command to decompress them.
 ```shell
 cd /path/to/Diamond/data/centroid
 gunzip ./centroid_napedro_L120228_00{1,2,3}_SW.mzXML.gz
