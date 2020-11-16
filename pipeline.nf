@@ -18,57 +18,57 @@ def helpMessage() {
     The typical command for running the pipeline is as follows:
 
         Start the pipeline with the aim to build an assay library:
-           \$ nextflow run pipeline.nf --workdir [] --centroid [] --profile [] --fasta [] --windows [] --windowsNumber []  <Options_01> <Functions>
+           \$ nextflow run pipeline.nf --workdir "" --centroid "" --profile "" --fasta "" --windows "" --windowsNumber ""  <Options_library_free> <Functions>
         
         Start the pipeline with providing a ready-made assay library:
-           \$ nextflow run pipeline.nf --skipLibGeneration --workdir [] --profile [] --irt [] --lib [] --windows [] <Options_02> <Functions>
+           \$ nextflow run pipeline.nf --skipLibGeneration --workdir "" --profile "" --irt "" --lib "" --windows "" <Options_library_based> <Functions>
 
     ====================
     Mandatory arguments: 
     ====================
 
-        --workdir                   Specify a work folder. For example: --workdir "/path/to/workdir" (Do not contain a slash at the end!)
+        --workdir                   Specify the location of the Diamond folder. For example: --workdir "/path/to/Diamond" (Do not contain a slash at the end!)
 
-        --centroid                  Deliver MS data in centroid mode. For example: --centriod "/path/to/Diamond/data/centroid/*.mzXML"
+        --centroid                  Deliver centroided data. For example: --centroid "/path/to/Diamond/data/centroid/*.mzXML"
 
-        --profile                   Deliver MS data in profile mode. For example: --profile "/path/to/Diamond/data/profile/*.mzXML"
+        --profile                   Deliver profile data. For example: --profile "/path/to/Diamond/data/profile/*.mzXML"
 
-        --fasta                     Deliver the protein database. For example: --fasta "/path/to/Diamond/common/db.fasta"
+        --fasta                     Deliver the database file. For example: --fasta "/path/to/Diamond/data/sgs_yeast_decoy.fasta"
     
-        --windows                   Deliver the winodws file. For example: --windows "/path/to/Diamond/common/win.tsv.32"
+        --windows                   Deliver the winodws file. For example: --windows "/path/to/Diamond/data/win.tsv.32"
 
-        --windowsNumber             Deliver the number of the windows. For example: --windowsNumber "32"
+        --windowsNumber             Deliver the number of the windows to select a suitable parameter file for DIA-Umpire. For example: --windowsNumber "32"
 
-        --irt                       Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/irt.TraML"
+        --irt                       Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/Diamond/data/irt.TraML"
 
-        --lib                       Deliver a ready-made spectral library. For example: --lib "/path/to/lib.TraML"
+        --lib                       Deliver a ready-made assay library. For example: --lib "/path/to/Diamond/data/lib.os.TraML"
 
-        --skipLibGeneration         Skip the process of library building. No need to give a specific parameter.
+        --skipLibGeneration         The parameter means the step of building an assay library will be skipped and Diamond's library-based mode will be choosed. No need to give a specific parameter.
 
-    ====================
-    Options_01 arguments:
-    ====================
+    ===============================
+    Options_library_free arguments:
+    ===============================
 
-        --outdir                    Specify a results folder. For example: --outdir "/path/to/outputs" (Do not contain a slash at the end!) 
+        --outdir                    Specify a results folder. For example: --outdir "/path/to/Diamond/outputs" (Do not contain a slash at the end!)  
                                     (Default: the folder named results under the workdir)
         
-        --diau_paraNumber           Specify the number of data parallel processing of DIA-Umpire (Default: "4").
+        --diau_paraNumber           Specify the maximum number of parallel data processing of DIA-Umpire (Default: "4").
 
-        --mgf_mzML_paraNumber       Specify the number of data parallel processing for file format conversion (Default: "4").
+        --mgf_mzML_paraNumber       Specify the maximum number of parallel data processing for file format conversion (Default: "4").
 
-        --mzML_part_paraNumber      Specify the number of parallel processing for dividing mzML files (Default: "4").
+        --mzML_part_paraNumber      Specify the maximum number of parallel data processing for dividing mzML files (Default: "4").
 
-        --comet_paraNumber          Specify the number of parallel processing of Comet searching (Default: "4").
+        --comet_paraNumber          Specify the maximum number of parallel data processing of Comet searching (Default: "4").
 
-        --tandem_paraNumber         Specify the number of parallel processing of X!Tandem searching (Default: "20").
+        --tandem_paraNumber         Specify the maximum number of parallel data processing of X!Tandem searching (Default: "20").
 
-        --merge_paraNumber          Specify the number of parallel processing for merging searching results (Default: "9").
+        --merge_paraNumber          Specify the maximum number of parallel data processing for merging searching results (Default: "9").
 
-        --xinteract_paraNumber      Specify the number of parallel processing for xinteract (Default: "30").
+        --xinteract_paraNumber      Specify the maximum number of parallel data processing for xinteract (Default: "30").
 
-        --openSWATH_paraNumber      Specify the number of parallel processing for openSWATH (Default: "4").
+        --openSWATH_paraNumber      Specify the maximum number of parallel data processing for openSWATH (Default: "4").
 
-        --pp_paraNumber             Specify the number of parallel processing for PyProphet (Default: "9").
+        --pp_paraNumber             Specify the maximum number of parallel data processing for PyProphet (Default: "9").
 
         --fdr                       The threshold of FDR control (Default: "0.01").
 
@@ -76,16 +76,16 @@ def helpMessage() {
 
         --pp_score_statistics_mode  The parameter option of PyProphet (Default: "global"). You can modify it to "local" or "local-global".
 
-    ====================
-    Options_02 arguments:
-    ====================
+    ================================
+    Options_library_based arguments:
+    ================================
 
-        --outdir                    Specify a results folder. For example: --outdir "/path/to/outputs" (Do not contain a slash at the end!) 
+        --outdir                    Specify a results folder. For example: --outdir "/path/to/Diamond/outputs" (Do not contain a slash at the end!) 
                                     (Default: the folder named results under the workdir)
         
-        --openSWATH_paraNumber      Specify the number of parallel processing for openSWATH (Default: "4").
+        --openSWATH_paraNumber      Specify the maximum number of parallel data processing for openSWATH (Default: "4").
 
-        --pp_paraNumber             Specify the number of parallel processing for PyProphet (Default: "9").
+        --pp_paraNumber             Specify the maximum number of parallel data processing for PyProphet (Default: "9").
 
         --fdr                       The threshold of FDR control (Default: "0.01").
 
@@ -201,7 +201,7 @@ def Warnings() {
             exit 0
         }
         if (params.workdir && params.centroid && params.profile && params.fasta && params.windows && params.windowsNumber) {
-            println "\nThe pipeline starts with the aim to build an assay library! The process OpenSWATH_withInputLib " +
+            println "\nDiamond's library_free mode starts with the aim to build an assay library! The process OpenSWATH_withInputLib " +
             "will be skipped!\n"
         }
     }
@@ -233,7 +233,7 @@ def Warnings() {
             exit 0
         }
         if (params.workdir && params.profile && params.irt && params.lib && params.windows) {
-            println "\nThe pipeline directly starts from the process OpenSWATH_withInputLib " +
+            println "\nDiamond's library-based mode starts from the process OpenSWATH_withInputLib " +
             "since a ready-made assay library is provided! \n"
         }
     }
