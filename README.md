@@ -46,7 +46,7 @@ The Nextflow script is saved as a `pipeline.nf` file in the `Diamond` folder. Di
 ### Library-free mode
 Execute the following command in your terminal to start the analysis of MS data with the aim to build an assay library:
 ```shell
-nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --winodws "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
+nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --windows "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
 ```
 The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 ### Library-based mode
