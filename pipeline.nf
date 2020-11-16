@@ -190,12 +190,12 @@ def Warnings() {
             exit 0
         }
         if (params.windows == null) {
-            println "\nError:\n     The wnidows file is not found! Please confirm " + 
+            println "\nError:\n     The windows file is not found! Please confirm " + 
             "it exists and add --windows parameter in the command-line!\n"
             exit 0
         }
         if (params.windowsNumber == null) {
-            println "\nError:\n     The DIA-Umpire pamameter file can not be confirmed! " + 
+            println "\nError:\n     The DIA-Umpire parameter file can not be confirmed! " + 
             "Please add --windowsNumber parameter in the command-line and ensure the diau.params " +
             "corresponding to the window size can be found in the common folder!\n"
             exit 0
