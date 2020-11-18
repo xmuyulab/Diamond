@@ -21,8 +21,7 @@ RUN bash /mnt/shell-scripts/cmake-install.sh
 RUN bash /mnt/shell-scripts/TPP-install.sh 
 
 #install OpenMS-2.6.0
-RUN bash /mnt/shell-scripts/OpenMS-install.sh && \
-    chown -R root:root /mnt/software/OpenMS-2.6.0/contrib-build/src/CoinMP-1.8.3
+RUN bash /mnt/shell-scripts/OpenMS-install.sh
 
 #install anaconda3, packages 
 RUN bash /mnt/shell-scripts/anaconda3-install.sh && \
