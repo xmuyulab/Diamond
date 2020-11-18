@@ -11,7 +11,8 @@
 mkdir /mnt/software/OpenMS-2.6.0
 cd /mnt/software/OpenMS-2.6.0
 
-git clone https://github.com/OpenMS/OpenMS.git
+wget -q -c https://zeroli.oss-cn-hangzhou.aliyuncs.com/Build-images/software/2020-07/OpenMS-2.6.0.tar.gz
+tar -zxf ./OpenMS-2.6.0.tar.gz
 
 cd /mnt/software/OpenMS-2.6.0/OpenMS
 
@@ -42,3 +43,5 @@ echo export PATH="\$PATH:/mnt/software/OpenMS-2.6.0/OpenMS-build/bin" >> /root/.
 source /root/.bashrc
 
 make test 
+
+rm /mnt/software/OpenMS-2.6.0/OpenMS-2.6.0.tar.gz
