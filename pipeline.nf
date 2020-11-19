@@ -212,7 +212,7 @@ def Warnings() {
             exit 0
         }
         if (params.workdir && params.centroid && params.profile && params.fasta && params.windows && params.windowsNumber) {
-            println "\nDiamond's library_free mode starts with the aim to build an assay library! The process OpenSWATH_withInputLib " +
+            println "\nDiamond's library-free mode starts with the aim to build an assay library! The process OpenSWATH_withInputLib " +
             "will be skipped!\n"
         }
     }
