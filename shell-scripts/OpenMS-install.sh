@@ -25,7 +25,7 @@ cmake -DBUILD_TYPE=LIST ../OpenMS/contrib
 cmake -DBUILD_TYPE=SEQAN ../OpenMS/contrib
 cmake -DBUILD_TYPE=WILDMAGIC ../OpenMS/contrib
 cmake -DBUILD_TYPE=EIGEN ../OpenMS/contrib 
-cmake -DBUILD_TYPE=COINOR ../OpenMS/contrib || \
+(cmake -DBUILD_TYPE=COINOR ../OpenMS/contrib && chown -R root:root /mnt/software/OpenMS-2.6.0/contrib-build/src/CoinMP-1.8.3) || \
 (chown -R root:root /mnt/software/OpenMS-2.6.0/contrib-build/src/CoinMP-1.8.3 && cmake -DBUILD_TYPE=COINOR ../OpenMS/contrib)
 cmake -DBUILD_TYPE=ALL -DNUMBER_OF_JOBS=4 ../OpenMS/contrib
 
