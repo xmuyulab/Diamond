@@ -23,8 +23,8 @@ gunzip ./napedro_L120228_00{1,2,3}_SW.mzXML.gz
 (3) The library file, irt file, windows file and database file have been stored in the `/Diamond/data/` folder. Note that the library file and the irt file are in a compressed format, so execute the following commands to decompress them.
 ```shell
 cd /path/to/Diamond/data
-tar -zxvf ./library.TraML.tar.gz
-tar -zxvf ./irt.TraML.tar.gz
+gunzip ./library.TraML.gz
+gunzip ./irt.TraML.gz
 ```
 After all the data is ready, an example tree structure diagram of the `/Diamond/data` folder is as follows:
 
