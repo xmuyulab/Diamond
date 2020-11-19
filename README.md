@@ -102,7 +102,7 @@ nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "" --profile
 |--tandem_paraNumber|Specify the maximum number of parallel data processing of X!Tandem searching (Default: "20").|
 |--merge_paraNumber|Specify the maximum number of parallel data processing for merging searching results (Default: "9").|
 |--xinteract_paraNumber|Specify the maximum number of parallel data processing for xinteract (Default: "30").|
-|--min_decoy_fraction|Specify the minimum fraction of decoy / target peptides and proteins for OpenSwathDecoyGenerator(Default: "0.8")|
+|--min_decoy_fraction|Specify the minimum fraction of decoy / target peptides and proteins for OpenSwathDecoyGenerator (Default: "0.8").|
 |--openSWATH_paraNumber|Specify the maximum number of parallel data processing for openSWATH (Default: "4").|
 |--min_rsq|Specify the minimum r-squared of RT peptides regression for OpenSwathWorkflow (Default: "0.95").|
 |--pp_paraNumber|Specify the maximum number of parallel data processing for PyProphet (Default: "9").|
