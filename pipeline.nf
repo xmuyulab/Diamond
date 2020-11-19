@@ -41,7 +41,7 @@ def helpMessage() {
 
         --irt                       Deliver a transition file containing RT normalization coordinates. For example: --irt "/path/to/Diamond/data/irt.TraML"
 
-        --lib                       Deliver a ready-made assay library. For example: --lib "/path/to/Diamond/data/lib.os.TraML"
+        --lib                       Deliver a ready-made assay library. For example: --lib "/path/to/Diamond/data/library.TraML"
 
         --skipLibGeneration         The parameter means the step of building an assay library will be skipped and Diamond's library-based mode will be choosed. No need to give a specific parameter.
 
@@ -65,8 +65,12 @@ def helpMessage() {
         --merge_paraNumber          Specify the maximum number of parallel data processing for merging searching results (Default: "9").
 
         --xinteract_paraNumber      Specify the maximum number of parallel data processing for xinteract (Default: "30").
+        
+        --min_decoy_fraction        Specify the minimum fraction of decoy / target peptides and proteins for OpenSwathDecoyGenerator (Default: "0.8").
 
         --openSWATH_paraNumber      Specify the maximum number of parallel data processing for openSWATH (Default: "4").
+        
+        --min_rsq                   Specify the minimum r-squared of RT peptides regression for OpenSwathWorkflow (Default: "0.95").
 
         --pp_paraNumber             Specify the maximum number of parallel data processing for PyProphet (Default: "9").
 
@@ -84,6 +88,8 @@ def helpMessage() {
                                     (Default: the folder named results under the workdir)
         
         --openSWATH_paraNumber      Specify the maximum number of parallel data processing for openSWATH (Default: "4").
+        
+        --min_rsq                   Specify the minimum r-squared of RT peptides regression for OpenSwathWorkflow (Default: "0.95").
 
         --pp_paraNumber             Specify the maximum number of parallel data processing for PyProphet (Default: "9").
 
@@ -145,15 +151,20 @@ params.centroid = null
 params.profile = null
 params.fasta = null
 params.windows = null
+
 //specify a window size, then the corresponding diau.params can be selected later
 params.windowsNumber = null
 
+//Minimum fraction of decoy / target peptides and proteins for OpenSwathDecoyGenerator
+params.min_decoy_fraction = "0.8"
+
 //openswath parameter settings
-params.pp_score_statistics_mode = "global"
-params.pp_score_lambda = "0.4"
-params.fdr = "0.01"
 params.irt = null
 params.lib = null
+params.fdr = "0.01"
+params.min_rsq = "0.95"
+params.pp_score_lambda = "0.4"
+params.pp_score_statistics_mode = "global"
 
 //Set the number of parallel processing when computer resources allow
 params.diau_paraNumber = 4
@@ -618,7 +629,7 @@ process build_library {
     bash spectrast2openswath.sh    #-i orig.splib -o lib.os.tsv, modifications and win.tsv are needed
 
     /mnt/software/OpenMS-2.6.0/OpenMS-build/bin/TargetedFileConverter -in lib.os.tsv -out lib.TraML -algorithm:force_invalid_mods  
-    /mnt/software/OpenMS-2.6.0/OpenMS-build/bin/OpenSwathDecoyGenerator -in lib.TraML -out lib.os.TraML -method shuffle 
+    /mnt/software/OpenMS-2.6.0/OpenMS-build/bin/OpenSwathDecoyGenerator -in lib.TraML -out lib.os.TraML -method shuffle -min_decoy_fraction ${params.min_decoy_fraction} 
 
     cat $prot_csv | grep -v  "DECOY_" | grep -v "cont_" | awk -F ',' '{printf("%09d\\t%s\\n",\$3,\$1);}' | \\
     sort -r | head -n 3 | awk -F '\\t' '{print \$2;}' > irt.tmp
@@ -664,7 +675,7 @@ process OpenSWATH_withBuiltLib {
     done | xargs -P ${params.openSWATH_paraNumber} -i \\
     /mnt/software/OpenMS-2.6.0/OpenMS-build/bin/OpenSwathWorkflow -in ./{} \\
     -tr ./$lib_os_TraML -threads 20 -sort_swath_maps -readOptions workingInMemory -rt_extraction_window \\
-    1200 -batchSize 0 -tr_irt ./$irt_TraML -swath_windows_file ./win.os.tsv -out_tsv ./{}.tsv
+    1200 -batchSize 0 -min_rsq ${params.min_rsq} -tr_irt ./$irt_TraML -swath_windows_file ./win.os.tsv -out_tsv ./{}.tsv
     """
 }
 
@@ -702,7 +713,7 @@ process OpenSWATH_withInputLib {
     done | xargs -P ${params.openSWATH_paraNumber} -i \\
     /mnt/software/OpenMS-2.6.0/OpenMS-build/bin/OpenSwathWorkflow -in ./{} \\
     -tr ./$library -threads 20 -sort_swath_maps -readOptions workingInMemory -rt_extraction_window \\
-    1200 -batchSize 0 -tr_irt ./$irt -swath_windows_file ./win.os.tsv -out_tsv ./{}.tsv 
+    1200 -batchSize 0 -min_rsq ${params.min_rsq} -tr_irt ./$irt -swath_windows_file ./win.os.tsv -out_tsv ./{}.tsv 
     """  
 }
 
