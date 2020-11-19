@@ -28,7 +28,7 @@ tar -zxvf ./irt.TraML.tar.gz
 ```
 After all the data is ready, an example tree structure diagram of the `/Diamond/data` folder is as follows:
 
-<div align=center>![image](https://github.com/xmuyulab/Diamond/blob/master/images/data-folder-struction.png)
+![image](https://github.com/xmuyulab/Diamond/blob/master/images/data-folder-struction.png)
 
 ## Diamond acquisition
 Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session and then execute the following command within the console:
