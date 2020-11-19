@@ -20,6 +20,7 @@ gunzip ./napedro_L120228_00{1,2,3}_SW.mzXML.gz
 cd /path/to/Diamond/data/centroid
 gunzip ./centroid_napedro_L120228_00{1,2,3}_SW.mzXML.gz
 ```
+![image](https://github.com/xmuyulab/Diamond/blob/master/images/data-folder-struction.png)
 
 ## Diamond acquisition
 Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session and then execute the following command within the console:
