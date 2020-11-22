@@ -4,7 +4,7 @@ In the suitation when an assay library is not available, we choose Diamond's lib
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
-First, please execute the following command in your terminal to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
+First, please execute the following command in your terminal (powershell if your machine is based on Windows system) to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
 ```shell
 git clone https://github.com/xmuyulab/Diamond.git
 ```
@@ -31,7 +31,7 @@ After all the data is ready, an example tree structure diagram of the `/Diamond/
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/data-folder-struction.png)
 
 ## Diamond acquisition
-Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine). On your machine, please start a Terminal session and then execute the following command within the console:
+Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine)(both for Linux and Windows). On your machine, please start a Terminal (PowerShell) session and then execute the following command within the console:
 ```shell
 docker pull zeroli/diamond:1.0
 ```
@@ -57,13 +57,13 @@ Execute the following command in your terminal to start the analysis of MS data 
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --windows "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
 ```
-The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+**Note:** This step will take nearly **two hours**. The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 ### Library-based mode
 Execute the following command in your terminal to start the analysis of MS data by providing an assay library:
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/library.TraML" --irt "/mnt/Diamond/data/irt.TraML" --windows "/mnt/Diamond/data/win.tsv.32"
 ```
-The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+**Note:** This step will take about **ten minutes**. The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The data processing results will be also stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 
 # Help Message
 Two different execution-commands for the two different modes of Diamond. This help message can also be obtained by executing the following command in the container：
