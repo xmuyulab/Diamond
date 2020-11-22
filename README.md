@@ -4,7 +4,7 @@ In the suitation when an assay library is not available, we choose Diamond's lib
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
-First, please execute the following command in your terminal (powershell if your machine is based on Windows system) to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
+First, please execute the following command in your terminal (PowerShell if your machine is based on Windows system) to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
 ```shell
 git clone https://github.com/xmuyulab/Diamond.git
 ```
@@ -31,7 +31,7 @@ After all the data is ready, an example tree structure diagram of the `/Diamond/
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/data-folder-struction.png)
 
 ## Diamond acquisition
-Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine)(both for Linux and Windows). On your machine, please start a Terminal (PowerShell) session and then execute the following command within the console:
+Diamond is containerized by Docker into an image, the installation tutorial of Docker is described in the [Docker documentation](https://docs.docker.com/engine) (both for Linux and Windows). On your machine, please start a Terminal (PowerShell) session and then execute the following command within the console:
 ```shell
 docker pull zeroli/diamond:1.0
 ```
