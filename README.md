@@ -4,7 +4,7 @@ In the suitation when an assay library is not available, we choose Diamond's lib
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
-First, please execute the following command in your terminal (PowerShell if your machine is based on Windows system) to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
+First, please execute the following command in your terminal (PowerShell, if your machine is based on Windows system) to clone the Diamond repository from [my GitHub](https://github.com/xmuyulab/Diamond) to your own machine. 
 ```shell
 git clone https://github.com/xmuyulab/Diamond.git
 ```
