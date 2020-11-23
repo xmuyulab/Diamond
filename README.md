@@ -1,6 +1,6 @@
 # Flowchart of Diamond
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/fig01.png)
-In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue route shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green route shown in the picture above, the library building step will be skipped.
+In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue dashed box shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green dashed box shown in the picture above, the library building step will be skipped.
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
