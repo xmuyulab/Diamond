@@ -44,7 +44,7 @@ docker run -it --name diamond_test -v /path/to/Diamond/:/mnt/Diamond/ zeroli/dia
 ```
 After the above command is executed, you will enter the container. Please switch to the folder `/mnt/Diamond` by executing `cd /mnt/Diamond` in your terminal.
 
-**Note:** Type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container. Please follow the commands below to re-enter the container after exiting:
+**Note:** Type in `exit` and press `Enter`, or hit `Ctrl+D` to exit the container. To re-enter the container after exiting, please follow the commands below :
 ```shell
 docker start diamond_test
 docker exec -it diamond_test bash
