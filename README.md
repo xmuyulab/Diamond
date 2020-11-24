@@ -1,6 +1,6 @@
 # Flowchart of Diamond
 ![image](https://github.com/xmuyulab/Diamond/blob/master/images/fig01.png)
-In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue dashed box shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green dashed box shown in the picture above, the library building step will be skipped.
+In the suitation when an assay library is not available, we choose Diamond's library-free mode, as the blue dashed box shown in the picture above, an assay library will be generated first and in the suitation when an assay library is available, we choose the Diamond's library-based mode, as the green dotted box shown in the picture above, the library building step will be skipped.
 
 # An Instruction on the Analysis of Example Datasets
 ## Data preparation
@@ -57,13 +57,13 @@ Execute the following command in your terminal to start the analysis of MS data 
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --windows "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
 ```
-**Note:** This step will take a **two hours**. The MS data processing results will be stored in the folder named `results` under `/mnt/Diamond` by default. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+**Note:** This step will take a **two hours**. The MS data processing intermediate results will be stored in the folder named `/mnt/Diamond/results` by default. The final peptide identification results are saved in the file named `aligned.tsv`. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 ### Library-based mode
 Execute the following command in your terminal to start the analysis of MS data by providing an assay library:
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --skipLibGeneration --workdir "/mnt/Diamond" --profile "/mnt/Diamond/data/profile/*.mzXML" --lib "/mnt/Diamond/data/library.TraML" --irt "/mnt/Diamond/data/irt.TraML" --windows "/mnt/Diamond/data/win.tsv.32" --outdir "/mnt/Diamond/results_library_based"
 ```
-**Note:** This step will take about **ten minutes**. The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The `--outdir` parameter specifies the storage location of the data processing results (Default: `/mnt/Diamond/results`). Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+**Note:** This step will take about **ten minutes**. The `--skipLibGeneration` parameter means the process of building an assay library will be skipped. The `--outdir` parameter specifies the storage location of the data processing intermediate results (Default: `/mnt/Diamond/results`). The final peptide identification results are saved in the outdir folder, named `aligned.tsv`. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 
 # Help Message
 Two different execution-commands for the two different modes of Diamond. This help message can also be obtained by executing the following command in the container：
