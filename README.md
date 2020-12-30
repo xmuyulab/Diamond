@@ -57,7 +57,7 @@ Execute the following command in your terminal to start the analysis of MS data 
 ```shell
 nextflow run /mnt/Diamond/pipeline.nf --workdir "/mnt/Diamond" --centroid "/mnt/Diamond/data/centroid/*.mzXML" --profile "/mnt/Diamond/data/profile/*.mzXML" --fasta "/mnt/Diamond/data/sgs_yeast_decoy.fasta" --windows "/mnt/Diamond/data/win.tsv.32" --windowsNumber "32"
 ```
-**Note:** This step will take a **two hours**. The MS data processing intermediate results will be stored in the folder named `/mnt/Diamond/results` by default. The final peptide identification results are saved in the file named `aligned.tsv`. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
+**Note:** This step will take about **two hours**. The MS data processing intermediate results will be stored in the folder named `/mnt/Diamond/results` by default. The final peptide identification results are saved in the file named `aligned.tsv`. Please refer to the **Help Message** section or execute `nextflow run /mnt/Diamond/pipeline.nf --help` in the container to view the detailed information of parameter passing.
 ### Library-based mode
 Execute the following command in your terminal to start the analysis of MS data by providing an assay library:
 ```shell
