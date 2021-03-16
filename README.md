@@ -134,4 +134,4 @@ These parameters are built-in functions of Nextflow, they can generate some visu
 |-resume|It means only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead. Also, the pipeline can be restarted by add the parameter when any disconnection of the network or server occurs.| 
 
 ## Citation
-Please refer to the [article](https://pubmed.ncbi.nlm.nih.gov/33416868/)
+Please cite this [article](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa1093/6069569).
